@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 main() => runApp(QuestionApp());
 
-class QuestionApp extends StatelessWidget {
+class QuestionAppState extends State<QuestionApp> {
   final List<String> questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
@@ -24,14 +24,18 @@ class QuestionApp extends StatelessWidget {
           children: [
             Text(questions[1]),
             ElevatedButton(
-              child: Text('Click me'),
-              onPressed: () => {
-                print('Hello world')
-              }
-            )
+                child: Text('Click me'),
+                onPressed: () => {print('Hello world')})
           ],
         ),
       ),
     );
+  }
+}
+
+class QuestionApp extends StatefulWidget {
+  @override
+  QuestionAppState createState() {
+    return QuestionAppState();
   }
 }
