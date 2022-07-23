@@ -9,8 +9,12 @@ class QuestionAppState extends State<QuestionApp> {
     'What\'s your favorite food?',
   ];
 
-  void answerQuestion() {
-    print('Answer chosen!');
+  var currentQuestion = 0;
+
+  void handleQuestionSelection(int index) {
+    setState(() {
+      currentQuestion = index;
+    });
   }
 
   @override
@@ -22,10 +26,16 @@ class QuestionAppState extends State<QuestionApp> {
         ),
         body: Column(
           children: [
-            Text(questions[1]),
+            Text(questions[currentQuestion]),
             ElevatedButton(
-                child: Text('Click me'),
-                onPressed: () => {print('Hello world')})
+                child: Text('Select first'),
+                onPressed: () => handleQuestionSelection(0)),
+            ElevatedButton(
+                child: Text('Select second'),
+                onPressed: () => handleQuestionSelection(1)),
+            ElevatedButton(
+                child: Text('Select second'),
+                onPressed: () => handleQuestionSelection(2))
           ],
         ),
       ),
