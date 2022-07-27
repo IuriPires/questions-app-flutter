@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 
 main() => runApp(QuestionApp());
 
-class QuestionAppState extends State<QuestionApp> {
+class _QuestionAppState extends State<QuestionApp> {
   final List<String> questions = [
     'What\'s your favorite color?',
     'What\'s your favorite animal?',
     'What\'s your favorite food?',
   ];
 
-  var currentQuestion = 0;
+  var _currentQuestion = 0;
 
-  void handleQuestionSelection(int index) {
+  void _handleQuestionSelection(int index) {
     setState(() {
-      currentQuestion = index;
+      _currentQuestion = index;
     });
   }
 
@@ -26,16 +26,16 @@ class QuestionAppState extends State<QuestionApp> {
         ),
         body: Column(
           children: [
-            Text(questions[currentQuestion]),
+            Text(questions[_currentQuestion]),
             ElevatedButton(
                 child: Text('Select first'),
-                onPressed: () => handleQuestionSelection(0)),
+                onPressed: () => _handleQuestionSelection(0)),
             ElevatedButton(
                 child: Text('Select second'),
-                onPressed: () => handleQuestionSelection(1)),
+                onPressed: () => _handleQuestionSelection(1)),
             ElevatedButton(
                 child: Text('Select second'),
-                onPressed: () => handleQuestionSelection(2))
+                onPressed: () => _handleQuestionSelection(2))
           ],
         ),
       ),
@@ -45,7 +45,7 @@ class QuestionAppState extends State<QuestionApp> {
 
 class QuestionApp extends StatefulWidget {
   @override
-  QuestionAppState createState() {
-    return QuestionAppState();
+  _QuestionAppState createState() {
+    return _QuestionAppState();
   }
 }
